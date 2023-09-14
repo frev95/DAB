@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app"></div>
+    <script>
+        // variables
+        const app = document.querySelector(".app")
+        const clientBalance = 1200
+        const atmBalance = 1200
+        const cardCode = 9513
+        let card = parseInt(prompt('Choisissez une carte (1, 2 ou 3)'))
+        let report = ''
+
+        // fonctions
+        function cardChecker() {
+            /* types de carte:
+                1: CB valide
+                2: CB bloquée
+                3: CB non valide
+            */
+            if (card === 2) {
+                report = 'carte bloquée'
+            } else if (card != 1) {
+                report = 'carte non valide'
+            } else {
+                passChecker()
+            }
+            /*if (card === 1) {
+                passChecker()
+            } else if (card === 2) {
+                app.innerText = 'carte bloquée'
+            } else {
+                app.innerText = 'carte non valide'
+            }*/
+        }
+
+        function passChecker() {
+            report = 'carte valide'
+            for (let index = 1; index < 4; index++) {
+                let typedCode = parseInt(prompt('Tapez votre code'))
+                if (typedCode === cardCode) {
+                    report += '\n essai n°' + String(index) + ' : '
+                    index = 4
+                    amountChoice()
+                } else {
+                    report += 'Votre carte a été bloquée'
+                    report += 'erroné \n'
+                }
+            }
+        }
+
+        function amountChoice() {
+            let amount = parseInt(prompt('Quelle somme désirez-vous ?'))
+            report += 'vous avez demandé ' + String(amount) + ' euros'
+        }
+
+        // application
+        cardChecker()
+        app.innerText = report
+
+    </script>
+</body>
+</html>

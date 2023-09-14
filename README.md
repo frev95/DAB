@@ -1,6 +1,8 @@
-# Algorithme DAB
+# Algorithme DAB 1
+*1 distributeur automatique de billets*
 
-Conception sous forme de pseudo-code
+##
+####Conception sous forme de pseudo-code
 
 ---
 
@@ -28,4 +30,23 @@ Le client tape son code
     SINON
         Le code est correct
         Demande du montant à retirer
-
+Le distributeur affiche le message "choisissez le montant du retrait"
+Le client choisit son montant
+Lancement du processus de vérification du solde client
+    SI montant > solde client OU le montant dépasse le plafond autorisé
+        Le retrait est refusé
+        Le distributeur en affiche la raison
+        Le distributeur relance la demande du montant à retirer
+    SINON
+        Le retrait est autorisé
+        Lancement du processus de vérification du solde DAB
+            SI montant > solde DAB
+                    Le retrait est refusé
+                    Le distributeur en affiche la raison
+                    Le distributeur relance la demande du montant à retirer
+            SINON
+                Le retrait est autorisé
+                Le distributeur délivre les billets
+Le client récupère sa carte bancaire
+Le client récupère les billets
+Fin du programme
