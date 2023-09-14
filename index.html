@@ -24,9 +24,9 @@
                 3: CB non valide
             */
             if (card === 2) {
-                report = 'carte bloquée'
+                report = 'Carte bloquée'
             } else if (card != 1) {
-                report = 'carte non valide'
+                report = 'Carte non valide'
             } else {
                 passChecker()
             }
@@ -40,16 +40,18 @@
         }
 
         function passChecker() {
-            report = 'carte valide'
+            report = 'Carte valide \n'
             for (let index = 1; index < 4; index++) {
                 let typedCode = parseInt(prompt('Tapez votre code'))
+                report += 'Essai n°' + String(index) + ' : '
                 if (typedCode === cardCode) {
-                    report += '\n essai n°' + String(index) + ' : '
                     index = 4
                     amountChoice()
                 } else {
-                    report += 'Votre carte a été bloquée'
                     report += 'erroné \n'
+                    if (index == 3) {
+                        report += 'Votre carte a été bloquée'
+                    }
                 }
             }
         }

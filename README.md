@@ -1,5 +1,5 @@
-# Algorithme DAB 1
-*1 distributeur automatique de billets*
+# Algorithme DAB <sup>(1)</sup>
+*<sup>(1)</sup> distributeur automatique de billets*
 
 ##
 ####Conception sous forme de pseudo-code
